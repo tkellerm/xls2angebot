@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE frame SYSTEM "urn:x-abas.de:abasscreens-1.00.dtd">
+
+<frame frameType="T">
+ <layout.grid>
+  <metainfo axis="column" grid="0" stretch="zoom" />
+  <metainfo axis="row" grid="0" stretch="zoom" />
+  <cell alignX="fill" alignY="fill" gridX="0" gridY="0">
+   <layout.notebook>
+    <pane.notebook msgId="d95984c6da90849d3f88401c8ff68171.1">
+     <layout.grid>
+      <metainfo axis="column" grid="2" indent="large" />
+      <cell gridX="0" gridY="0">
+       <label msgId="21faea93c6b3e40aa48688f1d7335b3c.1" />
+      </cell>
+      <cell gridX="1" gridY="0" sizeX="3">
+       <erpfield access="readOnly" dimX="127" s3Name="1:ytartikelbez" />
+      </cell>
+      <cell gridX="0" gridY="1">
+       <label msgId="1d1ae2bb3443b85d6523cc3b4ce05d64.1" />
+      </cell>
+      <cell gridX="1" gridY="1" sizeX="3">
+       <erpfield access="readOnly" s3Name="1:ytkundenartnum" />
+      </cell>
+      <cell gridX="0" gridY="2">
+       <label msgId="36429239b8d713367c988983b18d007b.1" />
+      </cell>
+      <cell gridX="1" gridY="2">
+       <erpfield access="readOnly" s3Name="1:ytzeichung" />
+      </cell>
+      <cell gridX="2" gridY="2">
+       <label msgId="ee3eae91de2d995a47e28eb1a2914835.1" />
+      </cell>
+      <cell gridX="3" gridY="2">
+       <erpfield access="readOnly" s3Name="1:ytlaenge" />
+      </cell>
+      <cell gridX="0" gridY="3">
+       <label msgId="526407a60c19a5cb7d801e27ffb71051.1" />
+      </cell>
+      <cell gridX="1" gridY="3">
+       <erpfield access="readOnly" s3Name="1:ytbreite" />
+      </cell>
+      <cell gridX="2" gridY="3">
+       <label msgId="46f51f271c4f08c5d227eb084dd41f23.1" />
+      </cell>
+      <cell gridX="3" gridY="3">
+       <erpfield access="readOnly" s3Name="1:ythoehe" />
+      </cell>
+      <cell gridX="0" gridY="4">
+       <label msgId="b452f9cfcee052c98c3cc127a83eb467.1" />
+      </cell>
+      <cell gridX="1" gridY="4">
+       <erpfield access="readOnly" s3Name="1:ytgewicht" />
+      </cell>
+      <cell gridX="2" gridY="4">
+       <label msgId="7c856a87e148ff82d5bcfa472c19b006.1" />
+      </cell>
+      <cell gridX="3" gridY="4">
+       <erpfield access="readOnly" s3Name="1:ytmge" />
+      </cell>
+      <cell gridX="0" gridY="5">
+       <label msgId="2d126f0c049b2fd92b33ba1bcd49c591.1" />
+      </cell>
+      <cell gridX="1" gridY="5" sizeX="3">
+       <erpfield access="readOnly" dimX="127" s3Name="1:ytbeschart" />
+      </cell>
+      <cell gridX="0" gridY="6">
+       <label msgId="ea5db9a12e92a3e5ee507eed69b1325f.1" />
+      </cell>
+      <cell gridX="1" gridY="6" sizeX="2">
+       <erpfield access="readOnly" s3Name="1:ytanfragenum" />
+      </cell>
+      <cell gridX="3" gridY="6" />
+      <cell gridX="0" gridY="7">
+       <label msgId="9ba51734ced032fd8ec25acfb387a23f.1" />
+      </cell>
+      <cell gridX="1" gridY="7">
+       <erpfield access="readOnly" s3Name="1:ytdatum" />
+      </cell>
+      <cell gridX="2" gridY="7">
+       <label msgId="ddf3633213983571ca8ab347ac24049f.1" />
+      </cell>
+      <cell gridX="3" gridY="7">
+       <erpfield access="readOnly" s3Name="1:ytbearb" />
+      </cell>
+      <cell gridX="0" gridY="8">
+       <label msgId="17a2725097ccbce4b0bbe1b69fb49aaf.1" />
+      </cell>
+      <cell gridX="1" gridY="8">
+       <erpfield access="readOnly" s3Name="1:ytpreis" />
+      </cell>
+      <cell gridX="2" gridY="8">
+       <label msgId="108335bca351ad8b86598a60a0d0fdd2.1" />
+      </cell>
+      <cell gridX="3" gridY="8">
+       <erpfield access="readOnly" s3Name="1:ytneuesangebot" />
+      </cell>
+      <cell gridX="0" gridY="9">
+       <label msgId="c49f8b851b82c1e057ef5a433d77efbd.1" />
+      </cell>
+      <cell gridX="1" gridY="9">
+       <erpfield access="readOnly" s3Name="1:ytartikelanlegen" />
+      </cell>
+      <cell gridX="2" gridY="9">
+       <label msgId="29ee072d0c372b254a27a4f973185dc4.1" />
+      </cell>
+      <cell gridX="3" gridY="9">
+       <erpfield access="readOnly" s3Name="1:ytinangebot" />
+      </cell>
+      <cell gridX="0" gridY="10" sizeX="2" />
+      <cell gridX="2" gridY="10" />
+      <cell gridX="3" gridY="10" />
+     </layout.grid>
+    </pane.notebook>
+   </layout.notebook>
+  </cell>
+ </layout.grid>
+</frame>
+

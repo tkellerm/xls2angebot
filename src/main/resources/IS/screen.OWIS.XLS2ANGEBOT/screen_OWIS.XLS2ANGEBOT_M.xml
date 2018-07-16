@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE frame SYSTEM "urn:x-abas.de:abasscreens-1.00.dtd">
+
+<frame frameType="M" msgId="416e692a51dba074737a92cdb9984872">
+ <layout.grid>
+  <metainfo axis="column" grid="0" stretch="zoom" />
+  <metainfo axis="row" grid="0" stretch="zoom" />
+  <cell alignX="fill" alignY="fill" gridX="0" gridY="0">
+   <layout.split axis="row">
+    <pane.split>
+     <layout.notebook>
+      <pane.notebook msgId="d95984c6da90849d3f88401c8ff68171">
+       <layout.grid>
+        <cell gridX="0" gridY="0">
+         <label msgId="a197a6402ec996f476cb825e68d6d942" />
+        </cell>
+        <cell gridX="1" gridY="0" sizeX="3">
+         <erpfield access="readOnly" dimX="80" s3Name="0:ykkundename" />
+        </cell>
+        <cell gridX="0" gridY="1">
+         <label msgId="7c56a31c25c8b14aed29fdd0e0db5dcb" />
+        </cell>
+        <cell gridX="1" gridY="1">
+         <erpfield access="readOnly" s3Name="0:ykkunde" />
+        </cell>
+        <cell gridX="2" gridY="1">
+         <label msgId="7c56a31c25c8b14aed29fdd0e0db5dcb.1" />
+        </cell>
+        <cell gridX="3" gridY="1">
+         <erpfield access="readOnly" s3Name="0:ykkundesuch" />
+        </cell>
+        <cell gridX="0" gridY="2">
+         <label msgId="5ec530b672d5f647cf9146251a254176" />
+        </cell>
+        <cell gridX="1" gridY="2" sizeX="3">
+         <erpfield dimX="80" s3Name="0:ykdateiname" />
+        </cell>
+        <cell gridX="0" gridY="3">
+         <label msgId="21ade1995b8e44cf74402025c641c82f" />
+        </cell>
+        <cell gridX="1" gridY="3">
+         <erpfield access="readOnly" s3Name="0:ykkundennummer" />
+        </cell>
+        <cell gridX="2" gridY="3" />
+        <cell gridX="3" gridY="3">
+         <erpfield dimX="0" msgId="7d60b672-730e-4fa5-96aa-e5c57f8800c2" s3Name="0:ykartikelanlegen" />
+         <erpfield dimX="0" msgId="b48f0607-78a6-432c-9982-4f86bb18d868" s3Name="0:ykangeboteanlegen" />
+        </cell>
+       </layout.grid>
+      </pane.notebook>
+     </layout.notebook>
+    </pane.split>
+    <pane.split>
+     <table>
+      <erpfield access="readOnly" dimX="30" msgId="21faea93c6b3e40aa48688f1d7335b3c" s3Name="1:ytartikelbez" />
+      <erpfield access="readOnly" dimX="30" msgId="1d1ae2bb3443b85d6523cc3b4ce05d64" s3Name="1:ytkundenartnum" />
+      <erpfield msgId="d07d2069-3d63-4fbb-89e3-72f548f63c35" s3Name="1:ytartikelverw" />
+      <erpfield access="readOnly" msgId="36429239b8d713367c988983b18d007b" s3Name="1:ytzeichung" />
+      <erpfield access="readOnly" msgId="ee3eae91de2d995a47e28eb1a2914835" s3Name="1:ytlaenge" />
+      <erpfield access="readOnly" msgId="526407a60c19a5cb7d801e27ffb71051" s3Name="1:ytbreite" />
+      <erpfield access="readOnly" msgId="46f51f271c4f08c5d227eb084dd41f23" s3Name="1:ythoehe" />
+      <erpfield access="readOnly" msgId="b452f9cfcee052c98c3cc127a83eb467" s3Name="1:ytgewicht" />
+      <erpfield access="readOnly" msgId="7c856a87e148ff82d5bcfa472c19b006" s3Name="1:ytmge" />
+      <erpfield access="readOnly" dimX="30" msgId="2d126f0c049b2fd92b33ba1bcd49c591" s3Name="1:ytbeschart" />
+      <erpfield access="readOnly" dimX="30" msgId="ea5db9a12e92a3e5ee507eed69b1325f" s3Name="1:ytanfragenum" />
+      <erpfield access="readOnly" msgId="9ba51734ced032fd8ec25acfb387a23f" s3Name="1:ytdatum" />
+      <erpfield access="readOnly" msgId="ddf3633213983571ca8ab347ac24049f" s3Name="1:ytbearb" />
+      <erpfield access="readOnly" msgId="17a2725097ccbce4b0bbe1b69fb49aaf" s3Name="1:ytpreis" />
+      <erpfield access="readOnly" msgId="108335bca351ad8b86598a60a0d0fdd2" s3Name="1:ytneuesangebot" />
+      <erpfield msgId="c49f8b851b82c1e057ef5a433d77efbd" s3Name="1:ytartikelanlegen" />
+      <erpfield msgId="29ee072d0c372b254a27a4f973185dc4" s3Name="1:ytinangebot" />
+      <erpfield access="readOnly" msgId="6243e650-e3f4-4c38-9adc-a44c17a68bf9" s3Name="1:ytangebotsverweis" />
+      <erpfield access="readOnly" msgId="4779d211-8479-44cc-a1f7-d8a1b73b311a" s3Name="1:ytfehlertext" />
+     </table>
+    </pane.split>
+   </layout.split>
+  </cell>
+ </layout.grid>
+</frame>
+
