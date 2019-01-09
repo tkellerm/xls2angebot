@@ -45,7 +45,7 @@ import de.abas.erp.jfop.rt.api.annotation.RunFopWith;
 @RunFopWith(EventHandlerRunner.class)
 public class InfoControlEventHandler {
 
-	private ResourceBundle xls2angebotProp = ResourceBundle.getBundle("xls2angebot");
+	private ResourceBundle data = Xsl2AngebotResourceBundle.getResourceBundleXLS2Angebot();
 
 	@ButtonEventHandler(field = "start", type = ButtonEventType.BEFORE)
 	public void startBefore(ButtonEvent event, ScreenControl screenControl, DbContext ctx, InfoControl head)
@@ -214,44 +214,63 @@ public class InfoControlEventHandler {
 		QuotationEditor angebotsKopf = null;
 		Iterable<Row> rows = head.table().getRows();
 
-		for (Row row : rows) {
-			if (row.getYtinangebot()) {
-				try {
-					// sollte eine Position ausgewählt worden sein, die den
-					// Kenner Ytneuesangebot nicht hat es aber noch keinen
-					// Angebotskopf geben, wird ebenfalls ein neuer erzeugt
-					if (row.getYtneuesangebot() || (angebotsKopf == null && !row.getYtneuesangebot())) {
-						// Wenn ein Angebot geladen ist, wird dieses gespeichert
-						// und das Objekt geleert
-						if (angebotsKopf != null) {
-							angebotsKopf.commit();
+		try {
+			Boolean neuesAngebot = false;
+			for (Row row : rows) {
+				if (row.getYtneuesangebot()) {
+					neuesAngebot = row.getYtneuesangebot();
+				}
+				if (row.getYtinangebot()) {
+					try {
+						// sollte eine Position ausgewählt worden sein, die den
+						// Kenner Ytneuesangebot nicht hat es aber noch keinen
+						// Angebotskopf geben, wird ebenfalls ein neuer erzeugt
+						if (row.getYtneuesangebot() || (angebotsKopf == null && !row.getYtneuesangebot())
+								|| neuesAngebot) {
+							// Wenn ein Angebot geladen ist, wird dieses
+							// gespeichert
+							// und das Objekt geleert
+							if (angebotsKopf != null) {
+								angebotsKopf.commit();
+
+							}
+							//
+							neuesAngebot = false;
+							// Es wird ein neues Angebot erstellt
+							angebotsKopf = angebotsKopfAnlegen(ctx, head.getYkkunde(), row);
+							// die aktuelle Zeile wird als Angebotsposition
+							// hinzugefügt
+
+							row.setYtangebotsverweis(angebotsPosiHinzufuegen(angebotsKopf, ctx, row));
+
+						} else if (angebotsKopf != null) {
+							// Die aktuelle Zeile wird als neue Angebotsposition
+							// zum
+							// Angebotsobjekt hinzugefügt
+							row.setYtangebotsverweis(angebotsPosiHinzufuegen(angebotsKopf, ctx, row));
 
 						}
-						// Es wird ein neues Angebot erstellt
-						angebotsKopf = angebotsKopfAnlegen(ctx, head.getYkkunde(), row);
-						// die aktuelle Zeile wird als Angebotsposition
-						// hinzugefügt
 
-						row.setYtangebotsverweis(angebotsPosiHinzufuegen(angebotsKopf, ctx, row));
-
-					} else if (angebotsKopf != null) {
-						// Die aktuelle Zeile wird als neue Angebotsposition zum
-						// Angebotsobjekt hinzugefügt
-						row.setYtangebotsverweis(angebotsPosiHinzufuegen(angebotsKopf, ctx, row));
-
+					} catch (CommandException e) {
+						setFehler(row, screenControl, e);
 					}
-
-				} catch (CommandException e) {
-					setFehler(row, screenControl, e);
 				}
 			}
+			// nach kompletten Durchlauf der Tabelle, wird das letzte
+			// bearbeitete
+			// Angebot noch gespeichert
+			if (angebotsKopf != null) {
+				angebotsKopf.commit();
 
-		}
+			}
 
-		// nach kompletten Durchlauf der Tabelle, wird das letzte bearbeitete
-		// Angebot noch gespeichert
-		if (angebotsKopf != null) {
-			angebotsKopf.commit();
+		} catch (Exception e) {
+			TextBox textbox = new TextBox(ctx, "Fehler", e.getMessage());
+			textbox.show();
+		} finally {
+			if (angebotsKopf.active()) {
+				angebotsKopf.abort();
+			}
 
 		}
 
@@ -335,7 +354,7 @@ public class InfoControlEventHandler {
 		// Datei wird im Hintergrund auf den Mandanten kopiert
 		String orgykdateiname = head.getYkdateiname();
 
-		String workdir = xls2angebotProp.getString("xls2angebot.workdir");
+		String workdir = data.getString("xls2angebot.workdir");
 		// Dateiname ermitteln
 		String fileName = orgykdateiname.substring(orgykdateiname.lastIndexOf("\\") + 1);
 		String newykdateiname = workdir + fileName;
@@ -349,8 +368,10 @@ public class InfoControlEventHandler {
 			String inklWin = "win/" + replace;
 			Path copySourcePath = Paths.get(inklWin);
 			Path copyTargetPath = Paths.get(newykdateiname);
-			Files.delete(copyTargetPath);
-			Files.copy(copySourcePath, copyTargetPath);
+			if (!copySourcePath.equals(copyTargetPath)) {
+				Files.delete(copyTargetPath);
+				Files.copy(copySourcePath, copyTargetPath);
+			}
 		}
 		head.setYkdateiname(newykdateiname);
 

@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 
 import javax.management.BadAttributeValueExpException;
 
+import org.apache.poi.POIXMLException;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
@@ -30,8 +31,10 @@ public class ExcelDateiHandling {
 	private Integer beginTableRow;
 	private org.apache.poi.ss.usermodel.Workbook workbook;
 	private FileInputStream excelFileInputStream;
-	private ResourceBundle xls2angebotProp;
+
 	private List<FileObject> listFileObject;
+
+	private ResourceBundle xls2angebotProp = Xsl2AngebotResourceBundle.getResourceBundleXLS2Angebot();
 
 	// public static void main(String[] args) {
 	// String filename = "J:\\stahl\\test.xls";
@@ -40,8 +43,6 @@ public class ExcelDateiHandling {
 	public ExcelDateiHandling() {
 		super();
 
-		// Propertie Datei wird geladen
-		this.xls2angebotProp = ResourceBundle.getBundle("xls2angebot");
 		// Startzeile der Tabelle wird aus der Propertie Datei gelesen
 		// Da die Prop Datei Strings liefert, muss hier ein Typecast stattfinden
 		// - macht jetzt die Funktion getIntProp
@@ -120,6 +121,9 @@ public class ExcelDateiHandling {
 			e.printStackTrace();
 		} catch (ParseException e) {
 			TextBox textbox = new TextBox(ctx, "Fehler", e.toString());
+			textbox.show();
+		} catch (POIXMLException e) {
+			TextBox textbox = new TextBox(ctx, "Fehler", e.getMessage());
 			textbox.show();
 		} finally {
 			if (this.workbook != null) {

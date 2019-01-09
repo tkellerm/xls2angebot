@@ -1,0 +1,156 @@
+database master Teil {
+	number 2
+	classname Part
+	structure Artikel {
+		groupNumber 1
+		head {
+			field GL20 zeichung {
+				label ""
+				heading ""
+				description Zeichnung
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field "MP4.2" laenge {
+				label ""
+				heading ""
+				description "Länge"
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field "MP4.2" breite {
+				label ""
+				heading ""
+				description Breite
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field "MP4.2" hoehe {
+				label ""
+				heading ""
+				description "Höhe"
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field "MP6.3" gewicht {
+				label ""
+				heading ""
+				description Gewicht
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field "MP4.2" dicke {
+				label ""
+				heading ""
+				description Dicke
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field "R6.4" mge {
+				label ""
+				heading ""
+				description "Jahres-Menge"
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field GL3 linie {
+				label ""
+				heading ""
+				description Linie
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field IP2 stangen {
+				label ""
+				heading ""
+				description Stangen
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field GL4 gehaengeart {
+				label ""
+				heading ""
+				description "Gehängeart"
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field IP2 anzteile {
+				label ""
+				heading ""
+				description "Anzahl Teile"
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field IP2 ebene {
+				label ""
+				heading ""
+				description Ebene
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field IP2 reihe {
+				label ""
+				heading ""
+				description Reihe
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field B1 doppelrahmen {
+				label ""
+				heading ""
+				description Doppelrahmen
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field IP2 block {
+				label ""
+				heading ""
+				description Block
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field GL255 maskiertext {
+				label ""
+				heading ""
+				description Maskierungstext
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field "P3:2" skip ngpos {
+				label ""
+				heading ""
+				description Angebotsposition
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field GL20 angposid {
+				label ""
+				heading ""
+				description "Angebotsposition Id"
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+		}
+		table {
+		}
+	}
+	
+}

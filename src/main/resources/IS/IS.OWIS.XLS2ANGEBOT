@@ -96,16 +96,28 @@ Z#0#istmenuean##1####(0)######0#0#0#0##0##
 Z#2#isytartikelbez#GL255#1#Artikelbezeichnung#(65)#(65)#(0)######1#1#1#0##1##
 Z#2#isytkundenartnum#GL100#1#Kundenartikelnummer#(65)#(65)#(0)######1#1#1#0##1##
 Z#2#isytzeichung#GL20#1#Zeichnung#(65)#(65)#(0)######1#1#1#0##1##
-Z#2#isytlaenge#MP4.2#1#Lï¿½nge#(65)#(65)#(0)######1#1#1#0##1##
+Z#2#isytlaenge#MP4.2#1#L„nge#(65)#(65)#(0)######1#1#1#0##1##
 Z#2#isytbreite#MP4.2#1#Breite#(65)#(65)#(0)######1#1#1#0##1##
-Z#2#isythoehe#MP4.2#1#Hï¿½he#(65)#(65)#(0)######1#1#1#0##1##
+Z#2#isythoehe#MP4.2#1#H”he#(65)#(65)#(0)######1#1#1#0##1##
 Z#2#isytgewicht#MP6.3#1#Gewicht#(65)#(65)#(0)######1#1#1#0##1##
+Z#2#isytdicke#MP4.2#1#max. Dicke#(65)#(65)#(0)######1#1#1#0##1##
 Z#2#isytmge#R6.4#1#Menge#(65)#(65)#(0)######1#1#1#0##1##
 Z#2#isytbeschart#GL255#1#Beschichtungsart#(65)#(65)#(0)######1#1#1#0##1##
+Z#2#isytpulverlack#GL255#1#Lackbezeichnung#(65)#(65)#(0)######1#1#1#0##1##
 Z#2#isytanfragenum#GL50#1#Anfragenummer#(65)#(65)#(0)######1#1#1#0##1##
 Z#2#isytdatum#GD#1#Datum#(65)#(65)#(0)######1#1#1#0##1##
 Z#2#isytbearb#GL20#1#Bearbeiter#(65)#(65)#(0)######1#1#1#0##1##
+Z#2#isytsonderaufwand#GL255#1#Sonderarbeiten#(65)#(65)#(0)######1#1#1#0##1##
+Z#2#isytwstoff#P12:4#1#Material#(65)#(65)#(0)######1#1#1#0##1##
+Z#2#isytabteilung#GL30#1#Abteilung#(65)#(65)#(0)######1#1#1#0##1##
+Z#2#isytschichtdicke#GL255#1#Schichtdicke#(65)#(65)#(0)######1#1#1#0##1##
 Z#2#isytpreis#R9.4#1#Preis#(65)#(65)#(0)######1#1#1#0##1##
+Z#2#isywtpb300#I6#1#WT/PB300#(65)#(65)#(0)######1#1#1#0##1##
+Z#2#isywtpb600#I6#1#WT/PB600#(65)#(65)#(0)######1#1#1#0##1##
+Z#2#isywtpb620#I6#1#WT/PB620#(65)#(65)#(0)######1#1#1#0##1##
+Z#2#isyaufabzeit300#I6#1#Auf-/abh„ngen PB300#(65)#(65)#(0)######1#1#1#0##1##
+Z#2#isyaufabzeit600#I6#1#Auf-/abh„ngen PB600#(65)#(65)#(0)######1#1#1#0##1##
+Z#2#isyaufabzeit620#I6#1#Auf-/abh„ngen PB620#(65)#(65)#(0)######1#1#1#0##1##
 Z#2#isytneuesangebot#B#1#ab hier neues Angebot#(65)#(65)#(0)######1#1#1#0##1##
 Z#2#isytartikelanlegen#B#1#Artikel anlegen#(65)#(65)#(0)######1#1#1#0##1##
 Z#2#isytinangebot#B#1#Zeile in Angebot ï¿½bernehmen#(65)#(65)#(0)######1#1#1#0##1##

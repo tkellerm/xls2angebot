@@ -19,9 +19,23 @@ public class FileObjectRow {
 	BigDecimal maxDicke;
 	BigDecimal pulverPreis;
 	BigDecimal pulverVerbrauch;
+	BigDecimal dicke;
+	BigDecimal preis;
+	BigDecimal wtp300;
+	BigDecimal wtp600;
+	BigDecimal wtp620;
+	BigDecimal aufabzeit300;
+	BigDecimal aufabzeit600;
+	BigDecimal aufabzeit620;
+	String ytpulverlack;
 	String farbton;
 	String lackbezeichnung;
 	String anfrageNum;
+	String Sonderaufwandbeschreibung;
+	String wstoff;
+	String abteilung;
+	String schichtdicke;
+
 	Date datum;
 	String mitarb;
 	Boolean beizen;
@@ -30,15 +44,12 @@ public class FileObjectRow {
 	Boolean pulverbeschichten;
 	Boolean transport;
 	Boolean sonderaufwand;
-	
-	public FileObjectRow(String artikel, BigDecimal menge,
-			BigDecimal einzelpreis, BigDecimal rabatt,
-			BigDecimal angebotspreis, BigDecimal dimX, BigDecimal dimM,
-			BigDecimal dimS, BigDecimal maxDicke, BigDecimal pulverPreis,
-			BigDecimal pulverVerbrauch, String farbton, String lackbezeichnung,
-			String anfrageNum, Date datum, String mitarb, Boolean beizen,
-			Boolean nurVbh, Boolean ktl, Boolean pulverbeschichten,
-			Boolean transport, Boolean sonderaufwand) {
+
+	public FileObjectRow(String artikel, BigDecimal menge, BigDecimal einzelpreis, BigDecimal rabatt,
+			BigDecimal angebotspreis, BigDecimal dimX, BigDecimal dimM, BigDecimal dimS, BigDecimal maxDicke,
+			BigDecimal pulverPreis, BigDecimal pulverVerbrauch, String farbton, String lackbezeichnung,
+			String anfrageNum, Date datum, String mitarb, Boolean beizen, Boolean nurVbh, Boolean ktl,
+			Boolean pulverbeschichten, Boolean transport, Boolean sonderaufwand) {
 		super();
 		this.artikel = artikel;
 		this.menge = menge;
@@ -267,6 +278,5 @@ public class FileObjectRow {
 	public void setSonderaufwand(Boolean sonderaufwand) {
 		this.sonderaufwand = sonderaufwand;
 	}
-		
 
 }
