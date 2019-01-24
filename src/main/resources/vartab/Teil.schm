@@ -79,7 +79,7 @@ database master Teil {
 			field GL4 gehaengeart {
 				label ""
 				heading ""
-				description "Gehängeart"
+				description "Gehaengeart"
 				screen EDITABLE
 				showPriority A
 				changePriority A
@@ -148,6 +148,54 @@ database master Teil {
 				showPriority A
 				changePriority A
 			}
+			field I6 wtpb300 {
+                label ""
+                heading ""
+                description "WT/PB300"
+                screen EDITABLE
+                showPriority A
+                changePriority A
+            }
+            field I6 wtpb600 {
+                label ""
+                heading ""
+                description "WT/PB600"
+                screen EDITABLE
+                showPriority A
+                changePriority A
+            }
+            field I6 wtpb620 {
+                label ""
+                heading ""
+                description "WT/PB620"
+                screen EDITABLE
+                showPriority A
+                changePriority A
+            }
+            field I6 aufabzeit300 {
+                label ""
+                heading ""
+                description "Auf-/Abhaengen PB300"
+                screen EDITABLE
+                showPriority A
+                changePriority A
+            }
+            field I6 aufabzeit600 {
+                label ""
+                heading ""
+                description "Auf-/Abhaengen PB600"
+                screen EDITABLE
+                showPriority A
+                changePriority A
+            }
+            field I6 aufabzeit620 {
+                label ""
+                heading ""
+                description "Auf-/Abhaengen PB620"
+                screen EDITABLE
+                showPriority A
+                changePriority A
+            }
 		}
 		table {
 		}

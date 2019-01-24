@@ -9,8 +9,8 @@ public class FileObjectRow {
 	String kundenArtikelNummer;
 	String zeichnung;
 	BigDecimal menge;
-	BigDecimal einzelpreis;
-	BigDecimal rabatt;
+	// BigDecimal einzelpreis;
+	// BigDecimal rabatt;
 	BigDecimal angebotspreis;
 	BigDecimal dimX;
 	BigDecimal dimM;
@@ -21,12 +21,31 @@ public class FileObjectRow {
 	BigDecimal pulverVerbrauch;
 	BigDecimal dicke;
 	BigDecimal preis;
-	BigDecimal wtp300;
-	BigDecimal wtp600;
-	BigDecimal wtp620;
+	BigDecimal wtpb300;
+	BigDecimal wtpb600;
+	BigDecimal wtpb620;
 	BigDecimal aufabzeit300;
 	BigDecimal aufabzeit600;
 	BigDecimal aufabzeit620;
+	BigDecimal staffelmenge;
+
+	public BigDecimal getStaffelmenge() {
+		return staffelmenge;
+	}
+
+	public void setStaffelmenge(BigDecimal staffelmenge) {
+		this.staffelmenge = staffelmenge;
+	}
+
+	public BigDecimal getStaffelpreis() {
+		return staffelpreis;
+	}
+
+	public void setStaffelpreis(BigDecimal staffelpreis) {
+		this.staffelpreis = staffelpreis;
+	}
+
+	BigDecimal staffelpreis;
 	String ytpulverlack;
 	String farbton;
 	String lackbezeichnung;
@@ -38,42 +57,139 @@ public class FileObjectRow {
 
 	Date datum;
 	String mitarb;
-	Boolean beizen;
-	Boolean nurVbh;
-	Boolean ktl;
-	Boolean pulverbeschichten;
-	Boolean transport;
-	Boolean sonderaufwand;
 
-	public FileObjectRow(String artikel, BigDecimal menge, BigDecimal einzelpreis, BigDecimal rabatt,
-			BigDecimal angebotspreis, BigDecimal dimX, BigDecimal dimM, BigDecimal dimS, BigDecimal maxDicke,
-			BigDecimal pulverPreis, BigDecimal pulverVerbrauch, String farbton, String lackbezeichnung,
-			String anfrageNum, Date datum, String mitarb, Boolean beizen, Boolean nurVbh, Boolean ktl,
-			Boolean pulverbeschichten, Boolean transport, Boolean sonderaufwand) {
-		super();
-		this.artikel = artikel;
-		this.menge = menge;
-		this.einzelpreis = einzelpreis;
-		this.rabatt = rabatt;
-		this.angebotspreis = angebotspreis;
-		this.dimX = dimX;
-		this.dimM = dimM;
-		this.dimS = dimS;
-		this.maxDicke = maxDicke;
-		this.pulverPreis = pulverPreis;
-		this.pulverVerbrauch = pulverVerbrauch;
-		this.farbton = farbton;
-		this.lackbezeichnung = lackbezeichnung;
-		this.anfrageNum = anfrageNum;
-		this.datum = datum;
-		this.mitarb = mitarb;
-		this.beizen = beizen;
-		this.nurVbh = nurVbh;
-		this.ktl = ktl;
-		this.pulverbeschichten = pulverbeschichten;
-		this.transport = transport;
-		this.sonderaufwand = sonderaufwand;
+	public BigDecimal getDicke() {
+		return dicke;
 	}
+
+	public void setDicke(BigDecimal dicke) {
+		this.dicke = dicke;
+	}
+
+	public BigDecimal getPreis() {
+		return preis;
+	}
+
+	public void setPreis(BigDecimal preis) {
+		this.preis = preis;
+	}
+
+	public BigDecimal getWtpb300() {
+		return wtpb300;
+	}
+
+	public void setWtpb300(BigDecimal wtpb300) {
+		this.wtpb300 = wtpb300;
+	}
+
+	public BigDecimal getWtpb600() {
+		return wtpb600;
+	}
+
+	public void setWtpb600(BigDecimal wtpb600) {
+		this.wtpb600 = wtpb600;
+	}
+
+	public BigDecimal getWtpb620() {
+		return wtpb620;
+	}
+
+	public void setWtpb620(BigDecimal wtpb620) {
+		this.wtpb620 = wtpb620;
+	}
+
+	public BigDecimal getAufabzeit300() {
+		return aufabzeit300;
+	}
+
+	public void setAufabzeit300(BigDecimal aufabzeit300) {
+		this.aufabzeit300 = aufabzeit300;
+	}
+
+	public BigDecimal getAufabzeit600() {
+		return aufabzeit600;
+	}
+
+	public void setAufabzeit600(BigDecimal aufabzeit600) {
+		this.aufabzeit600 = aufabzeit600;
+	}
+
+	public BigDecimal getAufabzeit620() {
+		return aufabzeit620;
+	}
+
+	public void setAufabzeit620(BigDecimal aufabzeit620) {
+		this.aufabzeit620 = aufabzeit620;
+	}
+
+	public String getYtpulverlack() {
+		return ytpulverlack;
+	}
+
+	public void setYtpulverlack(String ytpulverlack) {
+		this.ytpulverlack = ytpulverlack;
+	}
+
+	public String getSonderaufwandbeschreibung() {
+		return Sonderaufwandbeschreibung;
+	}
+
+	public void setSonderaufwandbeschreibung(String sonderaufwandbeschreibung) {
+		Sonderaufwandbeschreibung = sonderaufwandbeschreibung;
+	}
+
+	public String getWstoff() {
+		return wstoff;
+	}
+
+	public void setWstoff(String wstoff) {
+		this.wstoff = wstoff;
+	}
+
+	public String getAbteilung() {
+		return abteilung;
+	}
+
+	public void setAbteilung(String abteilung) {
+		this.abteilung = abteilung;
+	}
+
+	public String getSchichtdicke() {
+		return schichtdicke;
+	}
+
+	public void setSchichtdicke(String schichtdicke) {
+		this.schichtdicke = schichtdicke;
+	}
+
+	// public FileObjectRow(String artikel, BigDecimal menge, BigDecimal
+	// einzelpreis, BigDecimal rabatt,
+	// BigDecimal angebotspreis, BigDecimal dimX, BigDecimal dimM, BigDecimal
+	// dimS, BigDecimal maxDicke,
+	// BigDecimal pulverPreis, BigDecimal pulverVerbrauch, String farbton,
+	// String lackbezeichnung,
+	// String anfrageNum, Date datum, String mitarb, Boolean beizen, Boolean
+	// nurVbh, Boolean ktl,
+	// Boolean pulverbeschichten, Boolean transport, Boolean sonderaufwand) {
+	// super();
+	// this.artikel = artikel;
+	// this.menge = menge;
+	// this.einzelpreis = einzelpreis;
+	// this.rabatt = rabatt;
+	// this.angebotspreis = angebotspreis;
+	// this.dimX = dimX;
+	// this.dimM = dimM;
+	// this.dimS = dimS;
+	// this.maxDicke = maxDicke;
+	// this.pulverPreis = pulverPreis;
+	// this.pulverVerbrauch = pulverVerbrauch;
+	// this.farbton = farbton;
+	// this.lackbezeichnung = lackbezeichnung;
+	// this.anfrageNum = anfrageNum;
+	// this.datum = datum;
+	// this.mitarb = mitarb;
+	// //
+	// }
 
 	public FileObjectRow() {
 		// TODO Auto-generated constructor stub
@@ -111,21 +227,21 @@ public class FileObjectRow {
 		this.menge = menge;
 	}
 
-	public BigDecimal getEinzelpreis() {
-		return einzelpreis;
-	}
-
-	public void setEinzelpreis(BigDecimal einzelpreis) {
-		this.einzelpreis = einzelpreis;
-	}
-
-	public BigDecimal getRabatt() {
-		return rabatt;
-	}
-
-	public void setRabatt(BigDecimal rabatt) {
-		this.rabatt = rabatt;
-	}
+	// public BigDecimal getEinzelpreis() {
+	// return einzelpreis;
+	// }
+	//
+	// public void setEinzelpreis(BigDecimal einzelpreis) {
+	// this.einzelpreis = einzelpreis;
+	// }
+	//
+	// public BigDecimal getRabatt() {
+	// return rabatt;
+	// }
+	//
+	// public void setRabatt(BigDecimal rabatt) {
+	// this.rabatt = rabatt;
+	// }
 
 	public BigDecimal getAngebotspreis() {
 		return angebotspreis;
@@ -229,54 +345,6 @@ public class FileObjectRow {
 
 	public void setMitarb(String mitarb) {
 		this.mitarb = mitarb;
-	}
-
-	public Boolean getBeizen() {
-		return beizen;
-	}
-
-	public void setBeizen(Boolean beizen) {
-		this.beizen = beizen;
-	}
-
-	public Boolean getNurVbh() {
-		return nurVbh;
-	}
-
-	public void setNurVbh(Boolean nurVbh) {
-		this.nurVbh = nurVbh;
-	}
-
-	public Boolean getKtl() {
-		return ktl;
-	}
-
-	public void setKtl(Boolean ktl) {
-		this.ktl = ktl;
-	}
-
-	public Boolean getPulverbeschichten() {
-		return pulverbeschichten;
-	}
-
-	public void setPulverbeschichten(Boolean pulverbeschichten) {
-		this.pulverbeschichten = pulverbeschichten;
-	}
-
-	public Boolean getTransport() {
-		return transport;
-	}
-
-	public void setTransport(Boolean transport) {
-		this.transport = transport;
-	}
-
-	public Boolean getSonderaufwand() {
-		return sonderaufwand;
-	}
-
-	public void setSonderaufwand(Boolean sonderaufwand) {
-		this.sonderaufwand = sonderaufwand;
 	}
 
 }

@@ -1,0 +1,62 @@
+database Verkauf {
+	number 3
+	classname Sales
+	structure Verkauf {
+		groupNumber 1
+		head {
+		}
+	}
+	structure Position {
+		groupNumber 2
+		head {
+			field GL20 ngpulverlack {
+				label ""
+				heading ""
+				description Lackbezeichnung
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field GD ngdatum {
+				label ""
+				heading ""
+				description Anfragedatum
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field GL20 ngbearb {
+				label ""
+				heading ""
+				description "KSI-Bearbeiter"
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field GL255 ngsonderaufw {
+				label ""
+				heading ""
+				description Sonderarbeiten
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field GL30 ngabteilung {
+				label ""
+				heading ""
+				description Abteilung
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+			field GL255 ngschichtdic {
+				label ""
+				heading ""
+				description Schichtdicke
+				screen EDITABLE
+				showPriority A
+				changePriority A
+			}
+		}
+	}
+}

@@ -54,23 +54,35 @@
      <table>
       <erpfield access="readOnly" dimX="30" msgId="21faea93c6b3e40aa48688f1d7335b3c" s3Name="1:ytartikelbez" />
       <erpfield access="readOnly" dimX="30" msgId="1d1ae2bb3443b85d6523cc3b4ce05d64" s3Name="1:ytkundenartnum" />
-      <erpfield msgId="d07d2069-3d63-4fbb-89e3-72f548f63c35" s3Name="1:ytartikelverw" />
-      <erpfield access="readOnly" msgId="36429239b8d713367c988983b18d007b" s3Name="1:ytzeichung" />
-      <erpfield access="readOnly" msgId="ee3eae91de2d995a47e28eb1a2914835" s3Name="1:ytlaenge" />
-      <erpfield access="readOnly" msgId="526407a60c19a5cb7d801e27ffb71051" s3Name="1:ytbreite" />
-      <erpfield access="readOnly" msgId="46f51f271c4f08c5d227eb084dd41f23" s3Name="1:ythoehe" />
-      <erpfield access="readOnly" msgId="b452f9cfcee052c98c3cc127a83eb467" s3Name="1:ytgewicht" />
-      <erpfield access="readOnly" msgId="7c856a87e148ff82d5bcfa472c19b006" s3Name="1:ytmge" />
-      <erpfield access="readOnly" dimX="30" msgId="2d126f0c049b2fd92b33ba1bcd49c591" s3Name="1:ytbeschart" />
+      <erpfield dimX="0" msgId="d07d2069-3d63-4fbb-89e3-72f548f63c35" s3Name="1:ytartikelverw" />
+      <erpfield access="readOnly" dimX="0" msgId="36429239b8d713367c988983b18d007b" s3Name="1:ytzeichung" />
+      <erpfield access="readOnly" dimX="0" msgId="ee3eae91de2d995a47e28eb1a2914835" s3Name="1:ytlaenge" />
+      <erpfield access="readOnly" dimX="0" msgId="526407a60c19a5cb7d801e27ffb71051" s3Name="1:ytbreite" />
+      <erpfield access="readOnly" dimX="0" msgId="46f51f271c4f08c5d227eb084dd41f23" s3Name="1:ythoehe" />
+      <erpfield access="readOnly" dimX="0" msgId="b452f9cfcee052c98c3cc127a83eb467" s3Name="1:ytgewicht" />
+      <erpfield access="readOnly" msgId="xls2angebot_owis_ftable_ytdicke" s3Name="1:ytdicke" />
+      <erpfield access="readOnly" dimX="0" msgId="7c856a87e148ff82d5bcfa472c19b006" s3Name="1:ytmge" />
+      <erpfield access="readOnly" dimX="15" msgId="xls2angebot_owis_ftable_ytbeschart" s3Name="1:ytbeschart" />
+      <erpfield access="readOnly" dimX="15" msgId="xls2angebot_owis_ftable_ytpulverlack" s3Name="1:ytpulverlack" />
       <erpfield access="readOnly" dimX="30" msgId="ea5db9a12e92a3e5ee507eed69b1325f" s3Name="1:ytanfragenum" />
-      <erpfield access="readOnly" msgId="9ba51734ced032fd8ec25acfb387a23f" s3Name="1:ytdatum" />
-      <erpfield access="readOnly" msgId="ddf3633213983571ca8ab347ac24049f" s3Name="1:ytbearb" />
-      <erpfield access="readOnly" msgId="17a2725097ccbce4b0bbe1b69fb49aaf" s3Name="1:ytpreis" />
-      <erpfield access="readOnly" msgId="108335bca351ad8b86598a60a0d0fdd2" s3Name="1:ytneuesangebot" />
-      <erpfield msgId="c49f8b851b82c1e057ef5a433d77efbd" s3Name="1:ytartikelanlegen" />
-      <erpfield msgId="29ee072d0c372b254a27a4f973185dc4" s3Name="1:ytinangebot" />
-      <erpfield access="readOnly" msgId="6243e650-e3f4-4c38-9adc-a44c17a68bf9" s3Name="1:ytangebotsverweis" />
-      <erpfield access="readOnly" msgId="4779d211-8479-44cc-a1f7-d8a1b73b311a" s3Name="1:ytfehlertext" />
+      <erpfield access="readOnly" dimX="0" msgId="9ba51734ced032fd8ec25acfb387a23f" s3Name="1:ytdatum" />
+      <erpfield access="readOnly" dimX="0" msgId="ddf3633213983571ca8ab347ac24049f" s3Name="1:ytbearb" />
+      <erpfield access="readOnly" dimX="15" msgId="xls2angebot_owis_ftable_ytsonderaufwand" s3Name="1:ytsonderaufwand" />
+      <erpfield access="readOnly" msgId="xls2angebot_owis_ftable_ytwstoff" s3Name="1:ytwstoff" />
+      <erpfield access="readOnly" msgId="xls2angebot_owis_ftable_ytabteilung" s3Name="1:ytabteilung" />
+      <erpfield access="readOnly" dimX="15" msgId="xls2angebot_owis_ftable_ytschichtdicke" s3Name="1:ytschichtdicke" />
+      <erpfield access="readOnly" dimX="0" msgId="17a2725097ccbce4b0bbe1b69fb49aaf" s3Name="1:ytpreis" />
+      <erpfield access="readOnly" dimX="0" msgId="108335bca351ad8b86598a60a0d0fdd2" s3Name="1:ytneuesangebot" />
+      <erpfield dimX="0" msgId="c49f8b851b82c1e057ef5a433d77efbd" s3Name="1:ytartikelanlegen" />
+      <erpfield dimX="0" msgId="29ee072d0c372b254a27a4f973185dc4" s3Name="1:ytinangebot" />
+      <erpfield access="readOnly" dimX="0" msgId="6243e650-e3f4-4c38-9adc-a44c17a68bf9" s3Name="1:ytangebotsverweis" />
+      <erpfield access="readOnly" msgId="xls2angebot_owis_ftable_ywtpb300" s3Name="1:ywtpb300" />
+      <erpfield access="readOnly" msgId="xls2angebot_owis_ftable_ywtpb600" s3Name="1:ywtpb600" />
+      <erpfield access="readOnly" msgId="xls2angebot_owis_ftable_ywtpb620" s3Name="1:ywtpb620" />
+      <erpfield access="readOnly" msgId="xls2angebot_owis_ftable_yaufabzeit300" s3Name="1:yaufabzeit300" />
+      <erpfield access="readOnly" msgId="xls2angebot_owis_ftable_yaufabzeit600" s3Name="1:yaufabzeit600" />
+      <erpfield access="readOnly" msgId="xls2angebot_owis_ftable_yaufabzeit620" s3Name="1:yaufabzeit620" />
+      <erpfield access="readOnly" dimX="0" msgId="4779d211-8479-44cc-a1f7-d8a1b73b311a" s3Name="1:ytfehlertext" />
      </table>
     </pane.split>
    </layout.split>

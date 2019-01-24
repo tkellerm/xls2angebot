@@ -163,14 +163,13 @@ public class ExcelDateiHandling {
 		fileObjectRow.setDimM(getCellValueBigDezimal(row, "xls2angebot.spalte.dimM"));
 		fileObjectRow.setDimS(getCellValueBigDezimal(row, "xls2angebot.spalte.dimS"));
 		fileObjectRow.setGewicht(getCellValueBigDezimal(row, "xls2angebot.spalte.gewicht"));
-		// fileObjectRow.setMaxDicke(getCellValueBigDezimal(row,
-		// "xls2angebot.spalte.maxDicke"));
+		fileObjectRow.setMaxDicke(getCellValueBigDezimal(row, "xls2angebot.spalte.maxDicke"));
 		fileObjectRow.setMenge(getCellValueBigDezimal(row, "xls2angebot.spalte.menge"));
-		fileObjectRow.setPulverPreis(getCellValueBigDezimal(row, "xls2angebot.spalte.pulverPreis"));
-		fileObjectRow.setPulverVerbrauch(getCellValueBigDezimal(row, "xls2angebot.spalte.pulverVerbrauch"));
+
 		fileObjectRow.setFarbton(getCellValue(row, "xls2angebot.spalte.farbton"));
 		fileObjectRow.setLackbezeichnung(getCellValue(row, "xls2angebot.spalte.lackbezeichnung"));
 		fileObjectRow.setAnfrageNum(getCellValue(row, "xls2angebot.spalte.anfrageNum"));
+
 		if (!getCellValue(row, "xls2angebot.spalte.datum").isEmpty()) {
 			fileObjectRow.setDatum(convertStringtoDate(getCellValue(row, "xls2angebot.spalte.datum")));
 		} else {
@@ -179,15 +178,26 @@ public class ExcelDateiHandling {
 			fileObjectRow.setDatum(convertStringtoDate("Sat Jan 01 12:00:00 BST 2000"));
 		}
 		fileObjectRow.setMitarb(getCellValue(row, "xls2angebot.spalte.mitarb"));
-		fileObjectRow.setBeizen(convertStringToBool(getCellValue(row, "xls2angebot.spalte.beizen")));
-		fileObjectRow.setNurVbh(convertStringToBool(getCellValue(row, "xls2angebot.spalte.nurVbh")));
-		fileObjectRow.setKtl(convertStringToBool(getCellValue(row, "xls2angebot.spalte.ktl")));
-		fileObjectRow
-				.setPulverbeschichten(convertStringToBool(getCellValue(row, "xls2angebot.spalte.pulverbeschichten")));
-		fileObjectRow.setTransport(convertStringToBool(getCellValue(row, "xls2angebot.spalte.transport")));
-		fileObjectRow.setSonderaufwand(convertStringToBool(getCellValue(row, "xls2angebot.spalte.sonderaufwand")));
-		fileObjectRow.setEinzelpreis(getCellValueBigDezimal(row, "xls2angebot.spalte.einzelpreis"));
-		fileObjectRow.setRabatt(getCellValueBigDezimal(row, "xls2angebot.spalte.rabatt"));
+		fileObjectRow.setWstoff(getCellValue(row, "xls2angebot.spalte.werkstoff"));
+		fileObjectRow.setSonderaufwandbeschreibung(getCellValue(row, "xls2angebot.spalte.sonderaufwandbeschr"));
+		fileObjectRow.setAbteilung(getCellValue(row, "xls2angebot.spalte.abteilung"));
+		fileObjectRow.setSchichtdicke(getCellValue(row, "xls2angebot.spalte.schichtdicke"));
+
+		fileObjectRow.setWtpb300(getCellValueBigDezimal(row, "xls2angebot.spalte.wtbpdb300"));
+		fileObjectRow.setWtpb600(getCellValueBigDezimal(row, "xls2angebot.spalte.wtbpdb600"));
+		fileObjectRow.setWtpb620(getCellValueBigDezimal(row, "xls2angebot.spalte.wtbpdb620"));
+
+		fileObjectRow.setAufabzeit300(getCellValueBigDezimal(row, "xls2angebot.spalte.aufabpdb300"));
+		fileObjectRow.setAufabzeit600(getCellValueBigDezimal(row, "xls2angebot.spalte.aufabpdb600"));
+		fileObjectRow.setAufabzeit620(getCellValueBigDezimal(row, "xls2angebot.spalte.aufabpdb620"));
+
+		fileObjectRow.setStaffelmenge(getCellValueBigDezimal(row, "xls2angebot.spalte.staffelmge"));
+		fileObjectRow.setStaffelmenge(getCellValueBigDezimal(row, "xls2angebot.spalte.staffelpreis"));
+
+		// fileObjectRow.setEinzelpreis(getCellValueBigDezimal(row,
+		// "xls2angebot.spalte.einzelpreis"));
+		// fileObjectRow.setRabatt(getCellValueBigDezimal(row,
+		// "xls2angebot.spalte.rabatt"));
 		fileObjectRow.setAngebotspreis(getCellValueBigDezimal(row, "xls2angebot.spalte.angebotspreis"));
 
 	}
@@ -235,22 +245,22 @@ public class ExcelDateiHandling {
 		return new Integer(tmpString);
 	}
 
-	private void createNewFileObject() {
-		// TODO Auto-generated method stub
-
-	}
-
-	private int getMaxCol(org.apache.poi.ss.usermodel.Sheet sheet) {
-		// Anzahl Spalten(Cols) in der 2. Zeile (entspricht 1)
-		Integer maxcol = sheet.getRow(1).getPhysicalNumberOfCells();
-		return maxcol;
-	}
-
-	private int getMaxRow(org.apache.poi.ss.usermodel.Sheet sheet) {
-		// TODO Auto-generated method stub
-
-		return sheet.getLastRowNum();
-	}
+	// private void createNewFileObject() {
+	// // TODO Auto-generated method stub
+	//
+	// }
+	//
+	// private int getMaxCol(org.apache.poi.ss.usermodel.Sheet sheet) {
+	// // Anzahl Spalten(Cols) in der 2. Zeile (entspricht 1)
+	// Integer maxcol = sheet.getRow(1).getPhysicalNumberOfCells();
+	// return maxcol;
+	// }
+	//
+	// private int getMaxRow(org.apache.poi.ss.usermodel.Sheet sheet) {
+	// // TODO Auto-generated method stub
+	//
+	// return sheet.getLastRowNum();
+	// }
 
 	private String getZellenInhaltString(org.apache.poi.ss.usermodel.Sheet sheet, int x, int y)
 			throws BadAttributeValueExpException {

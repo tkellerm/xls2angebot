@@ -1,7 +1,7 @@
 plugins {
 	id "java"
 	id "maven-publish"
-	id "de.abas.esdk" version "0.10.16"
+	id "de.abas.esdk" version "0.11.0"
 }
 
 repositories {
@@ -18,8 +18,8 @@ esdk {
 		appId = "xls2a"
 		shared = true
 		infosystems = ["IS.OWIS.XLS2ANGEBOT"]
-		tables = ["Teil"]
-		screens = [:]
+		tables = ["Teil" , "Verkauf"]
+		screens = ["Part:Product": ["D"], "Sales:Quotation" : ["A"]]
 		data = []
 		keys = []
 		enums = []
@@ -50,6 +50,8 @@ esdk {
 		user = SSH_USER
 		password = SSH_PASSWORD
 		key = SSH_KEY
+		timeout = SSH_TIMEOUT.toInteger()
+		
 	}
 	installType = "SSH"
 }

@@ -11,6 +11,8 @@ import java.util.ResourceBundle;
 
 import javax.management.BadAttributeValueExpException;
 
+import org.apache.log4j.Logger;
+
 import de.abas.eks.jfop.remote.FOe;
 import de.abas.erp.api.gui.TextBox;
 import de.abas.erp.axi.event.EventException;
@@ -21,7 +23,6 @@ import de.abas.erp.axi2.annotation.EventHandler;
 import de.abas.erp.axi2.annotation.FieldEventHandler;
 import de.abas.erp.axi2.event.ButtonEvent;
 import de.abas.erp.axi2.event.FieldEvent;
-import de.abas.erp.axi2.event.FieldFillEvent;
 import de.abas.erp.axi2.type.ButtonEventType;
 import de.abas.erp.axi2.type.FieldEventType;
 import de.abas.erp.common.AbasException;
@@ -31,6 +32,7 @@ import de.abas.erp.db.Query;
 import de.abas.erp.db.exception.CommandException;
 import de.abas.erp.db.infosystem.custom.owis.InfoControl;
 import de.abas.erp.db.infosystem.custom.owis.InfoControl.Row;
+import de.abas.erp.db.schema.company.Material;
 import de.abas.erp.db.schema.customer.Customer;
 import de.abas.erp.db.schema.customer.SelectableCustomer;
 import de.abas.erp.db.schema.part.Product;
@@ -47,12 +49,7 @@ public class InfoControlEventHandler {
 
 	private ResourceBundle data = Xsl2AngebotResourceBundle.getResourceBundleXLS2Angebot();
 
-	@ButtonEventHandler(field = "start", type = ButtonEventType.BEFORE)
-	public void startBefore(ButtonEvent event, ScreenControl screenControl, DbContext ctx, InfoControl head)
-			throws EventException {
-		// TODO Auto-generated method stub
-
-	}
+	Logger logger = Logger.getLogger(InfoControlEventHandler.class);
 
 	@ButtonEventHandler(field = "start", type = ButtonEventType.AFTER)
 	public void startAfter(ButtonEvent event, ScreenControl screenControl, DbContext ctx, InfoControl head)
@@ -63,7 +60,7 @@ public class InfoControlEventHandler {
 			java.util.List<FileObject> listFileObjects = excelDateiHandling.getFileObject(ctx, head.getYkdateiname());
 			fillTableFromObject(head, ctx, screenControl, listFileObjects);
 
-		} catch (BadAttributeValueExpException e) {
+		} catch (BadAttributeValueExpException | AbasException e) {
 
 			TextBox textbox = new TextBox(ctx, "Fehler", e.toString());
 			textbox.show();
@@ -75,10 +72,11 @@ public class InfoControlEventHandler {
 	 * @param ctx
 	 * @param screenControl
 	 * @param listFileObjects
-	 *            Diese Funktion f�llt den Kopf und die Tabelle
+	 *            Diese Funktion füllt den Kopf und die Tabelle
+	 * @throws AbasException
 	 */
 	private void fillTableFromObject(InfoControl head, DbContext ctx, ScreenControl screenControl,
-			List<FileObject> listFileObjects) {
+			List<FileObject> listFileObjects) throws AbasException {
 		head.table().clear();
 		for (FileObject fileObject : listFileObjects) {
 
@@ -113,14 +111,28 @@ public class InfoControlEventHandler {
 					row.setYtbreite(fileObjectRow.getDimM());
 					row.setYthoehe(fileObjectRow.getDimS());
 					row.setYtgewicht(fileObjectRow.getGewicht());
+					row.setYtdicke(fileObjectRow.getMaxDicke());
 					row.setYtbeschart(fileObjectRow.getFarbton());
+					row.setYtpulverlack(fileObjectRow.getLackbezeichnung());
 					row.setYtanfragenum(fileObjectRow.getAnfrageNum());
 					AbasDate abasDate = new AbasDate(fileObjectRow.getDatum());
 					row.setYtdatum(abasDate);
 					row.setYtbearb(fileObjectRow.getMitarb());
+					row.setYtwstoff(findWstoff(ctx, fileObjectRow.getWstoff()));
+					row.setYtsonderaufwand(fileObjectRow.getSonderaufwandbeschreibung());
+					row.setYtabteilung(fileObjectRow.getAbteilung());
+					row.setYtschichtdicke(fileObjectRow.getSchichtdicke());
 					BigDecimal preis = fileObjectRow.getAngebotspreis();
 					BigDecimal preisGerundet = preis.round(new MathContext(13));
 					row.setYtpreis(preisGerundet);
+
+					row.setYwtpb300(fileObjectRow.getWtpb300().toBigInteger().intValue());
+					row.setYwtpb600(fileObjectRow.getWtpb600().toBigInteger().intValue());
+					row.setYwtpb620(fileObjectRow.getWtpb620().toBigInteger().intValue());
+					row.setYaufabzeit300(fileObjectRow.getAufabzeit300().toBigInteger().intValue());
+					row.setYaufabzeit600(fileObjectRow.getAufabzeit600().toBigInteger().intValue());
+					row.setYaufabzeit620(fileObjectRow.getAufabzeit620().toBigInteger().intValue());
+
 					// Initial sollen die Kenner Angebot und Artikel anlegen auf
 					// false stehen
 					row.setYtartikelanlegen(false);
@@ -156,6 +168,29 @@ public class InfoControlEventHandler {
 				}
 			}
 		}
+	}
+
+	private Material findWstoff(DbContext ctx, String wstoff) throws AbasException {
+		String selectionString = "0:descrOperLang==" + wstoff;
+		Selection<Material> selection = ExpertSelection.create(Material.class, selectionString);
+		Query<Material> queryMaterial = ctx.createQuery(selection);
+
+		int zaehl = 0;
+		Material uebergabeMaterial = null;
+
+		for (Material material : queryMaterial) {
+			uebergabeMaterial = material;
+			zaehl++;
+		}
+
+		if (zaehl == 1) {
+			return uebergabeMaterial;
+		} else if (zaehl == 0) {
+			return null;
+		} else {
+			throw new AbasException("Es wurden mehrere Werkstoff  mit der selben Bezeichnung gefunden.");
+		}
+
 	}
 
 	private Quotation angebotSuchen(DbContext ctx, SelectableCustomer kunde, Product artikel, AbasDate datum,
@@ -283,6 +318,12 @@ public class InfoControlEventHandler {
 		quotationRow.setUnitQty(row.getYtmge());
 		quotationRow.setPrice(row.getYtpreis());
 		quotationRow.setYtbeschichtungsart(row.getYtbeschart());
+		quotationRow.setYxls2angpulverlack(row.getYtpulverlack());
+		quotationRow.setYxls2angdatum(row.getYtdatum());
+		quotationRow.setYxls2angbearb(row.getYtbearb());
+		quotationRow.setYxls2angsonderaufw(row.getYtsonderaufwand());
+		quotationRow.setYxls2angabteilung(row.getYtabteilung());
+		quotationRow.setYxls2angschichtdic(row.getYtschichtdicke());
 		angebot.commitAndReopen();
 		// SelectableSales angebotreturn = angebot.getId();
 		// Quotation test = (Quotation) angebot.getId();
@@ -310,21 +351,43 @@ public class InfoControlEventHandler {
 		productEditor.setPackDimHeight(row.getYthoehe());
 		productEditor.setWeight(row.getYtgewicht());
 		productEditor.setDrawingNorm(row.getYtzeichung());
+		productEditor.setYxls2azeichung(row.getYtzeichung());
+		productEditor.setYxls2alaenge(row.getYtlaenge());
+		productEditor.setYxls2abreite(row.getYtbreite());
+		productEditor.setYxls2ahoehe(row.getYthoehe());
+		productEditor.setYxls2agewicht(row.getYtgewicht());
+		productEditor.setYxls2adicke(row.getYtdicke());
+		productEditor.setYxls2amge(row.getYtmge());
+		productEditor.setMat(row.getYtwstoff());
+		productEditor.setYxls2awtpb300(row.getYwtpb300());
+		productEditor.setYxls2awtpb600(row.getYwtpb600());
+		productEditor.setYxls2awtpb620(row.getYwtpb620());
+		productEditor.setYxls2aaufabzeit300(row.getYaufabzeit300());
+		productEditor.setYxls2aaufabzeit600(row.getYaufabzeit600());
+		productEditor.setYxls2aaufabzeit620(row.getYaufabzeit620());
+
 		// productEditor.setReceiptLoc();
 		productEditor.commit();
 		return productEditor.objectId();
 	}
 
 	private Product artikelSuchen(DbContext ctx, String ytkundenartnum) throws AbasException {
-		String selectionString = "swd==" + ytkundenartnum + ";@language=en";
+
+		String selectionString = "swd==" + ytkundenartnum + ";@language=en;@filingmode=(Active);@file=2:1";
+		logger.debug("Suche Artikel selkrit:" + selectionString);
 		Selection<Product> selection = ExpertSelection.create(Product.class, selectionString);
+
 		Query<Product> queryProduct = ctx.createQuery(selection);
 		int zaehl = 0;
+
 		Product uebergabeProd = null;
 		for (Product product : queryProduct) {
 			zaehl++;
 			uebergabeProd = product;
 		}
+
+		logger.debug("Suche Artikel anzahl:" + zaehl);
+
 		if (zaehl == 1) {
 			return uebergabeProd;
 		} else if (zaehl == 0) {
@@ -333,18 +396,6 @@ public class InfoControlEventHandler {
 			throw new AbasException("Es wurden mehrere Artikel mit dem selben Suchwort gefunden.");
 		}
 
-	}
-
-	@FieldEventHandler(field = "ykdateiname", type = FieldEventType.FILL)
-	public void ykdateinameFill(FieldFillEvent event, ScreenControl screenControl, DbContext ctx, InfoControl head)
-			throws EventException {
-		// TODO Auto-generated method stub
-	}
-
-	@FieldEventHandler(field = "ykdateiname", type = FieldEventType.VALIDATION)
-	public void ykdateinameValidation(FieldEvent event, ScreenControl screenControl, DbContext ctx, InfoControl head)
-			throws EventException {
-		// TODO Auto-generated method stub
 	}
 
 	@FieldEventHandler(field = "ykdateiname", type = FieldEventType.EXIT)
