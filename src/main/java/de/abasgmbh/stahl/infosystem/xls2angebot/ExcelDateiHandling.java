@@ -1,6 +1,6 @@
 package de.abasgmbh.stahl.infosystem.xls2angebot;
 
-import java.io.FileInputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -14,12 +14,14 @@ import java.util.ResourceBundle;
 
 import javax.management.BadAttributeValueExpException;
 
-import org.apache.poi.POIXMLException;
+import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ooxml.POIXMLException;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import de.abas.erp.api.gui.TextBox;
 import de.abas.erp.db.DbContext;
@@ -30,19 +32,16 @@ public class ExcelDateiHandling {
 	// String filename;
 	private Integer beginTableRow;
 	private org.apache.poi.ss.usermodel.Workbook workbook;
-	private FileInputStream excelFileInputStream;
 
 	private List<FileObject> listFileObject;
 
 	private ResourceBundle xls2angebotProp = Xsl2AngebotResourceBundle.getResourceBundleXLS2Angebot();
 
-	// public static void main(String[] args) {
-	// String filename = "J:\\stahl\\test.xls";
-	// }
+	Logger logger = Logger.getLogger(ExcelDateiHandling.class);
 
 	public ExcelDateiHandling() {
 		super();
-
+		logger.info("init EcelDateiHandling");
 		// Startzeile der Tabelle wird aus der Propertie Datei gelesen
 		// Da die Prop Datei Strings liefert, muss hier ein Typecast stattfinden
 		// - macht jetzt die Funktion getIntProp
@@ -50,17 +49,22 @@ public class ExcelDateiHandling {
 		this.listFileObject = new ArrayList<FileObject>();
 	}
 
-	private void getWorkbook(String fileName) throws FileNotFoundException, IOException {
+	private void getWorkbook(String fileName) throws IOException {
 		// ob die datei vorhanden ist wird automatisch geprüft - wenn nicht wird
 		// die fileNotFound Exception geschmissen
 		// ist es neuer oder alter Datentyp (xls oder xlsx)
-		this.excelFileInputStream = new FileInputStream(fileName);
-		if (fileName.contains(".xlsx")) {
-			this.workbook = new XSSFWorkbook(excelFileInputStream);
-		} else if (fileName.contains(".xls")) {
-			this.workbook = new HSSFWorkbook(excelFileInputStream);
-		} else
-			throw new FormatException("Es k�nnen nur .xls oder .xlsx-Dateien importiert werden!");
+
+		this.workbook = WorkbookFactory.create(new File(fileName));
+		// if (fileName.contains(".xlsx")) {
+		// this.workbook = new XSSFWorkbook(excelFileInputStream);
+		// }
+		// if (fileName.contains(".xls")) {
+		// this.workbook = new HSSFWorkbook(excelFileInputStream);
+		// }
+		if (this.workbook == null) {
+			throw new FormatException("Es können nur .xls oder .xlsx-Dateien importiert werden!");
+
+		}
 
 	}
 
@@ -87,11 +91,11 @@ public class ExcelDateiHandling {
 
 			for (Integer rowNum = rowStart; rowNum < rowEnd; rowNum++) {
 				Row row = sheet.getRow(rowNum);
+				logger.info("Zeile" + rowNum);
 				// wenn eines der beiden Artikelfelder gefüllt ist ...
 				String artikel = getCellValue(row, "xls2angebot.spalte.artikel");
 				String kundenArtikelNummer = getCellValue(row, "xls2angebot.spalte.kundenArtikelNummer");
-				if (!getCellValue(row, "xls2angebot.spalte.artikel").isEmpty()
-						|| !getCellValue(row, "xls2angebot.spalte.kundenArtikelNummer").isEmpty()) {
+				if (!artikel.isEmpty() || !kundenArtikelNummer.isEmpty()) {
 
 					if (fileObjectRow != null) {
 						// wenn neue Anfragenumme dann altes FileObject an die
@@ -107,32 +111,30 @@ public class ExcelDateiHandling {
 					fillFileObjectRow(fileObjectRow, row);
 					fileObject.getTable().add(fileObjectRow);
 
-				} else {
-					// break;
 				}
 
 			}
 
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			logger.error(e);
 		} catch (ParseException e) {
+			logger.error(e);
 			TextBox textbox = new TextBox(ctx, "Fehler", e.toString());
 			textbox.show();
 		} catch (POIXMLException e) {
+			logger.error(e);
 			TextBox textbox = new TextBox(ctx, "Fehler", e.getMessage());
 			textbox.show();
 		} finally {
 			if (this.workbook != null) {
-				try {
-					this.excelFileInputStream.close();
-
-				} catch (IOException e) {
-					// Nichts machen
-				}
+				// try {
+				// // this.workbook.close();
+				//
+				// } catch (IOException e) {
+				// // Nichts machen
+				// }
 			}
 
 		}
@@ -227,9 +229,14 @@ public class ExcelDateiHandling {
 
 		try {
 			return new BigDecimal(cellstring);
+		} catch (NullPointerException e) {
+			throw new BadAttributeValueExpException("Die Zelle mit den Koordinaten Spalte =" + getIntProp(string)
+					+ " Zeile =" + row.getRowNum() + " existiert énthält einen Fehler oder hat einen NULL als Wert");
+
 		} catch (NumberFormatException e) {
-			if (cellstring.isEmpty()) {
-				return new BigDecimal(0);
+
+			if (cellstring != null && cellstring.isEmpty()) {
+				return BigDecimal.ZERO;
 			} else {
 				throw new BadAttributeValueExpException(
 						"Die Zelle mit den Koordinaten Spalte =" + getIntProp(string) + " Zeile =" + row.getRowNum()
@@ -245,35 +252,18 @@ public class ExcelDateiHandling {
 		return new Integer(tmpString);
 	}
 
-	// private void createNewFileObject() {
-	// // TODO Auto-generated method stub
-	//
-	// }
-	//
-	// private int getMaxCol(org.apache.poi.ss.usermodel.Sheet sheet) {
-	// // Anzahl Spalten(Cols) in der 2. Zeile (entspricht 1)
-	// Integer maxcol = sheet.getRow(1).getPhysicalNumberOfCells();
-	// return maxcol;
-	// }
-	//
-	// private int getMaxRow(org.apache.poi.ss.usermodel.Sheet sheet) {
-	// // TODO Auto-generated method stub
-	//
-	// return sheet.getLastRowNum();
-	// }
-
 	private String getZellenInhaltString(org.apache.poi.ss.usermodel.Sheet sheet, int x, int y)
 			throws BadAttributeValueExpException {
 		// Hier werden alle Inhaltsmöglichkeiten einer Zelle in einen String
 		// umgewandelt
-		org.apache.poi.ss.usermodel.Cell cell = sheet.getRow(y).getCell(x);
+		Cell cell = sheet.getRow(y).getCell(x);
 		if (cell != null) {
 
-			if (cell.getCellType() == org.apache.poi.ss.usermodel.Cell.CELL_TYPE_STRING) {
+			if (cell.getCellType() == CellType.STRING) {
 				return cell.getStringCellValue();
 			} else {
 
-				if (cell.getCellType() == org.apache.poi.ss.usermodel.Cell.CELL_TYPE_NUMERIC) {
+				if (cell.getCellType() == CellType.NUMERIC) {
 
 					if (HSSFDateUtil.isCellDateFormatted(cell)) {
 						Date date = cell.getDateCellValue();
@@ -290,32 +280,38 @@ public class ExcelDateiHandling {
 					}
 
 				} else {
-					if (cell.getCellType() == org.apache.poi.ss.usermodel.Cell.CELL_TYPE_BOOLEAN) {
-						if (cell.getBooleanCellValue() == true) {
+					if (cell.getCellType() == CellType.BOOLEAN) {
+						if (cell.getBooleanCellValue()) {
 							return "ja";
 						} else {
 							return "nein";
 						}
 					} else {
-						if (cell.getCellType() == org.apache.poi.ss.usermodel.Cell.CELL_TYPE_FORMULA) {
-							if (cell.getCachedFormulaResultType() == org.apache.poi.ss.usermodel.Cell.CELL_TYPE_STRING) {
+						if (cell.getCellType() == CellType.FORMULA) {
+							if (cell.getCachedFormulaResultType() == CellType.STRING) {
 								return cell.getStringCellValue();
 							} else {
-								if (cell.getCachedFormulaResultType() == org.apache.poi.ss.usermodel.Cell.CELL_TYPE_NUMERIC) {
-									Double nummericvalue = cell.getNumericCellValue();
-									return nummericvalue.toString();
+								if (cell.getCachedFormulaResultType() == CellType.NUMERIC) {
+									if (HSSFDateUtil.isCellDateFormatted(cell)) {
+										Date date = cell.getDateCellValue();
+										return date.toString();
+									} else {
+										Double nummericvalue = cell.getNumericCellValue();
+										return nummericvalue.toString();
+									}
+
 								} else {
-									if (cell.getCachedFormulaResultType() == org.apache.poi.ss.usermodel.Cell.CELL_TYPE_BOOLEAN) {
-										if (cell.getBooleanCellValue() == true) {
+									if (cell.getCachedFormulaResultType() == CellType.BOOLEAN) {
+										if (cell.getBooleanCellValue()) {
 											return "ja";
 										} else {
 											return "nein";
 										}
 									} else {
-										if (cell.getCachedFormulaResultType() == org.apache.poi.ss.usermodel.Cell.CELL_TYPE_BLANK) {
+										if (cell.getCachedFormulaResultType() == CellType.BLANK) {
 											return "";
 										} else {
-											if (cell.getCachedFormulaResultType() == org.apache.poi.ss.usermodel.Cell.CELL_TYPE_ERROR) {
+											if (cell.getCachedFormulaResultType() == CellType.ERROR) {
 												return null;
 											}
 										}
@@ -323,10 +319,10 @@ public class ExcelDateiHandling {
 								}
 							}
 						} else {
-							if (cell.getCellType() == org.apache.poi.ss.usermodel.Cell.CELL_TYPE_BLANK) {
+							if (cell.getCellType() == CellType.BLANK) {
 								return "";
 							} else {
-								if (cell.getCellType() == org.apache.poi.ss.usermodel.Cell.CELL_TYPE_ERROR) {
+								if (cell.getCellType() == CellType.ERROR) {
 									return null;
 								}
 

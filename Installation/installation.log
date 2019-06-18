@@ -1,0 +1,427 @@
+2019-01-24 20:24:51 INFO [de.abas.esdk.installer.InstallationService:36] Starting app installation for xls2a 2.0.0-SNAPSHOT
+2019-01-24 20:24:51 DEBUG [de.abas.esdk.installer.InstallerArguments:192] archive path: xls2angebot-2.0.0-SNAPSHOT-standalone-app.jar
+2019-01-24 20:24:51 DEBUG [de.abas.esdk.installer.InstallerArguments:193] edp host: localhost
+2019-01-24 20:24:51 DEBUG [de.abas.esdk.installer.InstallerArguments:194] edp port: 6550
+2019-01-24 20:24:51 DEBUG [de.abas.esdk.installer.InstallerArguments:195] edp user: 
+2019-01-24 20:24:51 DEBUG [de.abas.esdk.installer.InstallerArguments:196] homedir: /mnt1/abas/s3
+2019-01-24 20:24:51 DEBUG [de.abas.esdk.installer.InstallerArguments:197] clientdir: /mnt1/abas/demo
+2019-01-24 20:24:51 DEBUG [de.abas.esdk.installer.InstallerArguments:198] clientId: demo
+2019-01-24 20:24:51 DEBUG [de.abas.esdk.installer.InstallerArguments:199] languages: 
+2019-01-24 20:24:51 DEBUG [de.abas.esdk.installer.InstallerArguments:200] nexus user: 
+2019-01-24 20:24:51 DEBUG [de.abas.esdk.installer.InstallerArguments:201] log level: DEBUG
+2019-01-24 20:24:51 DEBUG [de.abas.esdk.installer.InstallerArguments:202] skip IS installation: true
+2019-01-24 20:24:52 INFO [de.abas.esdk.installer.ComponentInstaller:81] Checking preconditions
+2019-01-24 20:24:52 INFO [de.abas.esdk.core.installers.edp.EDPPreconditionInspector:24]   Checking EDP connection
+2019-01-24 20:24:53 INFO [de.abas.esdk.core.installers.edp.EDPPreconditionInspector:33]   Checking shell command execution
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:63] Executing command: echo 'checking shell command execution'
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:77] checking shell command execution
+
+2019-01-24 20:24:53 INFO [de.abas.esdk.core.installers.edp.EDPPreconditionInspector:73]   Checking the abas environment
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:63] Executing command: echo $MANDANTDIR
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:77] /mnt1/abas/demo
+
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:63] Executing command: echo $HOMEDIR
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:77] /mnt1/abas/s3
+
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:63] Executing command: echo $MNAME
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:77] demo
+
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:63] Executing command: echo $HOST_HOMEDIR
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:77] stahlsrv05.stahl.intranet.local
+
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:63] Executing command: echo $EDPHOST
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:77] stahlsrv05.stahl.intranet.local
+
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:63] Executing command: echo $EDPPORT
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:77] 6550
+
+2019-01-24 20:24:53 INFO [de.abas.esdk.core.installers.edp.EDPPreconditionInspector:92]   Checking the user rights
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.edp.EDPWorkdirHandler$Companion:19] Current user's password definiton: 9
+2019-01-24 20:24:53 INFO [de.abas.esdk.core.installers.edp.EDPPreconditionInspector:93]   Installing user's password definition is: [26a]
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:63] Executing command: whoami
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:77] demo
+
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:63] Executing command: groups
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:77] users
+
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:63] Executing command: ls -ltr $(which ajo_install.sh)
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:77] -rwxrwxr-x 1 s3 users 21877  6. Aug  13:11 /mnt1/abas/s3/bin/ajo_install.sh
+
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:63] Executing command: ls -ld $(find abasbase/java/ -type d)
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.core.installers.local.LocalCommandHelper:77] drwxrws---   6 demo users  4096 22. Sep  02:23 abasbase/java/
+drwxrws---   3 demo users  4096 22. Sep  02:24 abasbase/java/classes
+drwxrws---   3 demo users  4096 22. Sep  02:24 abasbase/java/classes/de
+drwxrws---   3 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas
+drwxrws---   3 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp
+drwxrws---   5 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/index
+drwxrws---   4 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem
+drwxrws---   6 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/custom
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/custom/owev
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/custom/owis
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/custom/owop
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/custom/owst
+drwxrws---  33 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/ab
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/atlas
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/bd
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/demo
+drwxrws---   2 demo users 49152 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/dfue
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/dms
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/docu
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/ek
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/email
+drwxrws---   2 demo users 12288 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/ev
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/ewi
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/exp
+drwxrws---   2 demo users 77824 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/fb
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/fe
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/is
+drwxrws---   2 demo users 20480 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/ko
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/kr
+drwxrws---   2 demo users 20480 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/la
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/log
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/ma
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/mf
+drwxrws---   2 demo users 20480 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/op
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/pdm
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/s3sys
+drwxrws---   2 demo users 12288 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/ser
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/sk
+drwxrws---   2 demo users 40960 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/st
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/sy
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/tx
+drwxrws---   2 demo users 12288 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/vk
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/infosystem/standard/vo
+drwxrws--- 129 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/account
+drwxrws---   2 demo users 16384 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/accountrange
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/accounttransaction
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/acctngmasterfiles
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/activitybase
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/addresses
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/assessment
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/bankdata
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/bankimport
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/biddingprocess
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/billingplan
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/calendar
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/capacity
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/cashbook
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/commission
+drwxrws---   2 demo users 28672 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/company
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/consolidation
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/containeraccount
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/containeraccounting
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/costdistribution
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/costentriessuggestion
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/costingsheet
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/costtype
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/costunit
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/currency
+drwxrws---  13 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/custom
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/custom/coliaufteilung
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/custom/empb
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/custom/fibu
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/custom/hochregal
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/custom/kantlaenge
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/custom/kreklamation
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/custom/ksikommandos
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/custom/lreklamation
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/custom/musterauftraege
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/custom/qs
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/custom/wareneingang
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/customer
+drwxrws---   2 demo users 16384 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/dataexport
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/dbconfig
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/document
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/dynqueue
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/edi
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/ediconfiguration
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/ediprocessing
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/eds
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/employee
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/entry
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/entryjournal
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/entrytemplate
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/enumeration
+drwxrws---   2 demo users 12288 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/enums
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/evaluation
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/exchangerate
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/exclusionlistcheck
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/exclusionlists
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/filter
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/financialcostevaluations
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/fiscalyearmanagement
+drwxrws---   2 demo users 12288 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/fixedasset
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/guaranteesofpayment
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/infosystem
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/infrastructure
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/internal
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/journal
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/location
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/lots
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/mail
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/materialsallocation
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/notes
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/numberassignment
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/oiprocessing
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/operation
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/outstandingitems
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/packinginstructions
+drwxrws---   2 demo users 16384 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/part
+drwxrws---   2 demo users 16384 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/paymentform
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/paymentmasterfiles
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/paymentsuggestions
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/pdc
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/permission
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/plannedpayment
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/planningtimeperiod
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/pricing
+drwxrws---   2 demo users 12288 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/printparameter
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/processaccountchange
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/processtaxrule
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/productionlist
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/productrange
+drwxrws---   2 demo users 12288 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/projectsuitecalculation
+drwxrws---   2 demo users 16384 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/projectsuiteconfiguration
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/projectsuitecontractmanagement
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/projectsuitedimensions
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/projectsuitehistory
+drwxrws---   2 demo users 24576 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/projectsuitemasterdata
+drwxrws---   2 demo users 12288 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/projectsuitepersonneltime
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/projectsuiteplanning
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/projectsuitereports
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/projectsuitestatistics
+drwxrws---   2 demo users 12288 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/projectsuitetransactiondata
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/projectsuitetransactions
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/projectsuitevaluedata
+drwxrws---   2 demo users 24576 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/purchasing
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/qualifications
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/queue
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/recurringentry
+drwxrws---   2 demo users 16384 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/referencetypes
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/regions
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/reminders
+drwxrws---   2 demo users 36864 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/sales
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/salesplanning
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/schemata
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/sequencedescription
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/serial
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/serviceassignment
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/serviceemployees
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/serviceproduct
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/servicerequest
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/servicereservation
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/shiporder
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/shippingplanning
+drwxrws---   2 demo users 12288 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/stockorder
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/stocktaking
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/storagequantity
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/taxcode
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/transaction
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/types
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/units
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/userenums
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/valuation
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/valuesequence
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/valueset
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/vendor
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/warehouse
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/webconfiguration
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/webcontainer
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/webuser
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/classes/de/abas/erp/db/schema/workorder
+drwxrws---   2 demo users  4096 22. Sep  02:23 abasbase/java/doc
+drwxrws---   3 demo users  4096 22. Sep  02:23 abasbase/java/gen.src
+drwxrws---   3 demo users  4096 22. Sep  02:23 abasbase/java/gen.src/de
+drwxrws---   3 demo users  4096 22. Sep  02:23 abasbase/java/gen.src/de/abas
+drwxrws---   3 demo users  4096 22. Sep  02:23 abasbase/java/gen.src/de/abas/erp
+drwxrws---   5 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db
+drwxrws---   2 demo users  4096 22. Sep  02:23 abasbase/java/gen.src/de/abas/erp/db/index
+drwxrws---   4 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem
+drwxrws---   6 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/custom
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/custom/owev
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/custom/owis
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/custom/owop
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/custom/owst
+drwxrws---  33 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/ab
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/atlas
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/bd
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/demo
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/dfue
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/dms
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/docu
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/ek
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/email
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/ev
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/ewi
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/exp
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/fb
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/fe
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/is
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/ko
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/kr
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/la
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/log
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/ma
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/mf
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/op
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/pdm
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/s3sys
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/ser
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/sk
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/st
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/sy
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/tx
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/vk
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/infosystem/standard/vo
+drwxrws--- 129 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/account
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/accountrange
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/accounttransaction
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/acctngmasterfiles
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/activitybase
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/addresses
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/assessment
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/bankdata
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/bankimport
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/biddingprocess
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/billingplan
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/calendar
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/capacity
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/cashbook
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/commission
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/company
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/consolidation
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/containeraccount
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/containeraccounting
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/costdistribution
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/costentriessuggestion
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/costingsheet
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/costtype
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/costunit
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/currency
+drwxrws---  13 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/custom
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/custom/coliaufteilung
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/custom/empb
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/custom/fibu
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/custom/hochregal
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/custom/kantlaenge
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/custom/kreklamation
+drwxrws---   2 demo users  4096 22. Sep  20:33 abasbase/java/gen.src/de/abas/erp/db/schema/custom/ksikommandos
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/custom/lreklamation
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/custom/musterauftraege
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/custom/qs
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/custom/wareneingang
+drwxrws---   2 demo users  4096 14. Jan  09:55 abasbase/java/gen.src/de/abas/erp/db/schema/customer
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/dataexport
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/dbconfig
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/document
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/dynqueue
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/edi
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/ediconfiguration
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/ediprocessing
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/eds
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/employee
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/entry
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/entryjournal
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/entrytemplate
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/enumeration
+drwxrws---   2 demo users 12288 14. Jan  09:55 abasbase/java/gen.src/de/abas/erp/db/schema/enums
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/evaluation
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/exchangerate
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/exclusionlistcheck
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/exclusionlists
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/filter
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/financialcostevaluations
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/fiscalyearmanagement
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/fixedasset
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/guaranteesofpayment
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/infosystem
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/infrastructure
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/internal
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/journal
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/location
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/lots
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/mail
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/materialsallocation
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/notes
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/numberassignment
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/oiprocessing
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/operation
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/outstandingitems
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/packinginstructions
+drwxrws---   2 demo users  4096 22. Sep  02:23 abasbase/java/gen.src/de/abas/erp/db/schema/part
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/paymentform
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/paymentmasterfiles
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/paymentsuggestions
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/pdc
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/permission
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/plannedpayment
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/planningtimeperiod
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/pricing
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/printparameter
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/processaccountchange
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/processtaxrule
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/productionlist
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/productrange
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/projectsuitecalculation
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/projectsuiteconfiguration
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/projectsuitecontractmanagement
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/projectsuitedimensions
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/projectsuitehistory
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/projectsuitemasterdata
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/projectsuitepersonneltime
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/projectsuiteplanning
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/projectsuitereports
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/projectsuitestatistics
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/projectsuitetransactiondata
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/projectsuitetransactions
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/projectsuitevaluedata
+drwxrws---   2 demo users  4096 29. Okt  11:33 abasbase/java/gen.src/de/abas/erp/db/schema/purchasing
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/qualifications
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/queue
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/recurringentry
+drwxrws---   2 demo users  4096 14. Jan  09:55 abasbase/java/gen.src/de/abas/erp/db/schema/referencetypes
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/regions
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/reminders
+drwxrws---   2 demo users  4096 22. Sep  02:23 abasbase/java/gen.src/de/abas/erp/db/schema/sales
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/salesplanning
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/schemata
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/sequencedescription
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/serial
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/serviceassignment
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/serviceemployees
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/serviceproduct
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/servicerequest
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/servicereservation
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/shiporder
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/shippingplanning
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/stockorder
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/stocktaking
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/storagequantity
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/taxcode
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/transaction
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/types
+drwxrws---   2 demo users  4096 22. Sep  02:23 abasbase/java/gen.src/de/abas/erp/db/schema/units
+drwxrws---   2 demo users  4096 14. Jan  09:55 abasbase/java/gen.src/de/abas/erp/db/schema/userenums
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/valuation
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/valuesequence
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/valueset
+drwxrws---   2 demo users  4096 22. Sep  02:23 abasbase/java/gen.src/de/abas/erp/db/schema/vendor
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/warehouse
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/webconfiguration
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/webcontainer
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/webuser
+drwxrws---   2 demo users  4096 22. Sep  02:24 abasbase/java/gen.src/de/abas/erp/db/schema/workorder
+drwxrws---   2 demo users  4096 14. Jan  09:55 abasbase/java/lib
+
+2019-01-24 20:24:53 DEBUG [de.abas.esdk.installer.InstallationService$configureLogger$1:95] Exception in thread main
+de.abas.esdk.core.EsdkException: Cannot deploy more than one JFOP Server App per abas App! [Ljava.lang.String;@6d1310f6
+	at de.abas.esdk.installer.ComponentInstaller.installApp(ComponentInstaller.kt:105)
+	at de.abas.esdk.installer.InstallationService.install(InstallationService.kt:41)
+	at de.abas.esdk.installer.CommandLineInstaller$Companion.main(CommandLineInstaller.kt:48)
+	at de.abas.esdk.installer.CommandLineInstaller.main(CommandLineInstaller.kt)
+2019-01-24 20:24:53 ERROR [de.abas.esdk.installer.InstallationService$configureLogger$1:96] An error occurred: Cannot deploy more than one JFOP Server App per abas App! [Ljava.lang.String;@6d1310f6 see log file /mnt1/abas/demo/esdk-installations/xls2a/2.0.0-SNAPSHOT/installation.log for further information

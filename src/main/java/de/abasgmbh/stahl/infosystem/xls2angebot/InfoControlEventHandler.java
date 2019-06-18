@@ -426,6 +426,9 @@ public class InfoControlEventHandler {
 		}
 		head.setYkdateiname(newykdateiname);
 
+		// zu test Zwecken
+		// head.setYkdateiname(orgykdateiname);
+
 	}
 
 }
