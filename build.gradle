@@ -1,7 +1,7 @@
 plugins {
 	id "java"
 	id "maven-publish"
-	id "de.abas.esdk" version "0.12.7"
+	id "de.abas.esdk" version "0.12.22"
 }
 
 repositories {
@@ -17,7 +17,6 @@ esdk {
 		vendorId = "ag"
 		appId = "xls2a"
 		shared = false
-		
 		infosystems = ["IS.OWIS.XLS2ANGEBOT"]
 		tables = ["Teil" , "Verkauf"]
 		screens = ["Part:Product": ["D"], "Sales:Quotation" : ["A"]]
@@ -104,10 +103,11 @@ publishing {
 dependencies {
 	
 	provided 'de.abas.homedir:abas-db-base:1.0.0'
-	implementation 'de.abas.homedir:abas-erpapi:1.0.0'
+	provided 'de.abas.homedir:abas-erpapi:1.0.0'
 	provided 'de.abas.homedir:abas-erp-common:1.0.0'
 	provided 'de.abas.homedir:abas-enums:1.0.0'
-	implementation 'de.abas.homedir:commons-collections:1.0.0'
+	runtime "de.abas.homedir:commons-collections:1.0.0"
+	provided  'de.abas.homedir:log4j:1.0.0'
 	
 	provided 'de.abas.homedir:abas-jfop-runtime-api:1.0.0'
 	provided 'de.abas.homedir:abas-jfopapi:1.0.0'
@@ -118,13 +118,20 @@ dependencies {
     implementation  'de.abas.homedir:abas-axi2:1.0.0'
 	implementation  'de.abas.clientdir:abas-db:1.0.0-SNAPSHOT'
 	implementation  'de.abas.clientdir:abas-db-infosys:1.0.0-SNAPSHOT'
-	implementation  'de.abas.homedir:log4j:1.0.0'
 	
-	compile group:  'org.apache.poi', name: 'poi', version: '4.1.0'
-	compile group:  'org.apache.poi', name: 'poi-ooxml', version: '4.1.0'
-	compile group:  'org.apache.poi', name: 'poi-ooxml-schemas', version: '4.1.0'
-	compile group:  'org.apache.xmlbeans', name: 'xmlbeans', version: '3.1.0'
+	
+	
 	compile group: 'commons-logging', name: 'commons-logging', version: '1.2'
+	
+	implementation "org.apache.poi:poi:4.1.1"
+    implementation "org.apache.poi:poi-ooxml:4.1.1"
+    implementation "org.apache.poi:poi-ooxml-schemas:4.1.1"
+
+    implementation "org.apache.xmlbeans:xmlbeans:3.1.0"
+    
+    implementation "org.apache.commons:commons-lang3:3.4" 
+    implementation "org.apache.commons:commons-compress:1.19"
+	
 		
 	
 }
