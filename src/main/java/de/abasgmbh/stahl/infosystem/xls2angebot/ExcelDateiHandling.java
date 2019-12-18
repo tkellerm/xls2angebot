@@ -46,7 +46,7 @@ public class ExcelDateiHandling {
 		// Da die Prop Datei Strings liefert, muss hier ein Typecast stattfinden
 		// - macht jetzt die Funktion getIntProp
 		this.beginTableRow = getIntProp("xls2angebot.startzeile");
-		this.listFileObject = new ArrayList<FileObject>();
+		this.listFileObject = new ArrayList<>();
 	}
 
 	private void getWorkbook(String fileName) throws IOException {
@@ -117,8 +117,11 @@ public class ExcelDateiHandling {
 
 		} catch (FileNotFoundException e) {
 			logger.error(e);
+
 		} catch (IOException e) {
 			logger.error(e);
+			TextBox textbox = new TextBox(ctx, "Fehler", e.toString());
+			textbox.show();
 		} catch (ParseException e) {
 			logger.error(e);
 			TextBox textbox = new TextBox(ctx, "Fehler", e.toString());
