@@ -103,11 +103,11 @@ publishing {
 dependencies {
 	
 	provided 'de.abas.homedir:abas-db-base:1.0.0'
-	provided 'de.abas.homedir:abas-erpapi:1.0.0'
+	implementation 'de.abas.homedir:abas-erpapi:1.0.0'
 	provided 'de.abas.homedir:abas-erp-common:1.0.0'
 	provided 'de.abas.homedir:abas-enums:1.0.0'
 	runtime "de.abas.homedir:commons-collections:1.0.0"
-	provided  'de.abas.homedir:log4j:1.0.0'
+	implementation  'de.abas.homedir:log4j:1.0.0'
 	
 	provided 'de.abas.homedir:abas-jfop-runtime-api:1.0.0'
 	provided 'de.abas.homedir:abas-jfopapi:1.0.0'
@@ -118,9 +118,7 @@ dependencies {
     implementation  'de.abas.homedir:abas-axi2:1.0.0'
 	implementation  'de.abas.clientdir:abas-db:1.0.0-SNAPSHOT'
 	implementation  'de.abas.clientdir:abas-db-infosys:1.0.0-SNAPSHOT'
-	
-	
-	
+		
 	compile group: 'commons-logging', name: 'commons-logging', version: '1.2'
 	
 	implementation "org.apache.poi:poi:4.1.1"
@@ -131,7 +129,5 @@ dependencies {
     
     implementation "org.apache.commons:commons-lang3:3.4" 
     implementation "org.apache.commons:commons-compress:1.19"
-	
 		
-	
 }
